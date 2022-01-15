@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		FD99368E2793285100B29BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD99368D2793285100B29BF5 /* AppDelegate.swift */; };
 		FD9936902793285100B29BF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD99368F2793285100B29BF5 /* SceneDelegate.swift */; };
-		FD9936922793285100B29BF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9936912793285100B29BF5 /* ViewController.swift */; };
+		FD9936922793285100B29BF5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9936912793285100B29BF5 /* MapViewController.swift */; };
 		FD9936952793285100B29BF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9936932793285100B29BF5 /* Main.storyboard */; };
 		FD9936972793285900B29BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9936962793285900B29BF5 /* Assets.xcassets */; };
 		FD99369A2793285900B29BF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9936982793285900B29BF5 /* LaunchScreen.storyboard */; };
+		FD9936A827932E3B00B29BF5 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9936A727932E3B00B29BF5 /* NetworkReachabilityManager.swift */; };
+		FD9936AB27932E7500B29BF5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9936AA27932E7500B29BF5 /* UIViewController+Extensions.swift */; };
+		FD9936AD279331BC00B29BF5 /* HotelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9936AC279331BC00B29BF5 /* HotelsViewController.swift */; };
+		FD9936AF2793349600B29BF5 /* HotelsApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9936AE2793349600B29BF5 /* HotelsApiClient.swift */; };
+		FD9936B127933F7600B29BF5 /* MapViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9936B027933F7600B29BF5 /* MapViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FD99368A2793285100B29BF5 /* Hotels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hotels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD99368D2793285100B29BF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD99368F2793285100B29BF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FD9936912793285100B29BF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FD9936912793285100B29BF5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FD9936942793285100B29BF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD9936962793285900B29BF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD9936992793285900B29BF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD99369B2793285900B29BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD9936A727932E3B00B29BF5 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		FD9936AA27932E7500B29BF5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		FD9936AC279331BC00B29BF5 /* HotelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelsViewController.swift; sourceTree = "<group>"; };
+		FD9936AE2793349600B29BF5 /* HotelsApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelsApiClient.swift; sourceTree = "<group>"; };
+		FD9936B027933F7600B29BF5 /* MapViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,76 @@
 		FD99368C2793285100B29BF5 /* Hotels */ = {
 			isa = PBXGroup;
 			children = (
+				FD9936A627932DDB00B29BF5 /* Helpers */,
+				FD9936A52793292E00B29BF5 /* Api */,
+				FD9936A42793292600B29BF5 /* Controller */,
+				FD9936A32793291C00B29BF5 /* Model */,
+				FD9936A12793286700B29BF5 /* View */,
 				FD99368D2793285100B29BF5 /* AppDelegate.swift */,
 				FD99368F2793285100B29BF5 /* SceneDelegate.swift */,
-				FD9936912793285100B29BF5 /* ViewController.swift */,
-				FD9936932793285100B29BF5 /* Main.storyboard */,
-				FD9936962793285900B29BF5 /* Assets.xcassets */,
-				FD9936982793285900B29BF5 /* LaunchScreen.storyboard */,
 				FD99369B2793285900B29BF5 /* Info.plist */,
 			);
 			path = Hotels;
+			sourceTree = "<group>";
+		};
+		FD9936A12793286700B29BF5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD9936962793285900B29BF5 /* Assets.xcassets */,
+				FD9936A22793286F00B29BF5 /* Storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD9936A22793286F00B29BF5 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FD9936932793285100B29BF5 /* Main.storyboard */,
+				FD9936982793285900B29BF5 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		FD9936A32793291C00B29BF5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD9936A42793292600B29BF5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD9936A927932E5D00B29BF5 /* Extensions */,
+				FD9936912793285100B29BF5 /* MapViewController.swift */,
+				FD9936AC279331BC00B29BF5 /* HotelsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FD9936A52793292E00B29BF5 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				FD9936AE2793349600B29BF5 /* HotelsApiClient.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		FD9936A627932DDB00B29BF5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FD9936A727932E3B00B29BF5 /* NetworkReachabilityManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FD9936A927932E5D00B29BF5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FD9936AA27932E7500B29BF5 /* UIViewController+Extensions.swift */,
+				FD9936B027933F7600B29BF5 /* MapViewController+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +209,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD9936922793285100B29BF5 /* ViewController.swift in Sources */,
+				FD9936922793285100B29BF5 /* MapViewController.swift in Sources */,
+				FD9936B127933F7600B29BF5 /* MapViewController+Extensions.swift in Sources */,
 				FD99368E2793285100B29BF5 /* AppDelegate.swift in Sources */,
+				FD9936AF2793349600B29BF5 /* HotelsApiClient.swift in Sources */,
+				FD9936AB27932E7500B29BF5 /* UIViewController+Extensions.swift in Sources */,
+				FD9936AD279331BC00B29BF5 /* HotelsViewController.swift in Sources */,
+				FD9936A827932E3B00B29BF5 /* NetworkReachabilityManager.swift in Sources */,
 				FD9936902793285100B29BF5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
