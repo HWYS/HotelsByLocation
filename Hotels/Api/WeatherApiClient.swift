@@ -15,7 +15,7 @@ class WeatherApiClient {
         ]
         
         
-        let request = NSMutableURLRequest(url: NSURL(string: "https://community-open-weather-map.p.rapidapi.com/weather?q=\(q)&lat=\(lat)&lon=\(lon)&lang=null&units=metric")! as URL,
+        var request = URLRequest(url: URL(string: "https://community-open-weather-map.p.rapidapi.com/weather?q=\(q)&lat=\(lat)&lon=\(lon)&lang=null&units=metric")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         request.httpMethod = "GET"

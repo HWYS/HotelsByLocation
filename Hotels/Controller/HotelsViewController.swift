@@ -22,8 +22,9 @@ class HotelsViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Hotels around \(pin.locationName!)"
         
-        getCurrentWeather()
+        
         setupFetchedResultsController()
+        getCurrentWeather()
     }
     
     private func getCurrentWeather(){
@@ -31,7 +32,7 @@ class HotelsViewController: UIViewController {
             showHideActivityIndicator(true, activityIndicator)
             WeatherApiClient.getCurrentWeatherByCoordinate(q: pin.locationName!, lat: pin.lat, lon: pin.lon) { response, error in
                 if let response = response {
-                    self.temperatureLabel.text = "\(response.main.temp)"
+                    self.temperatureLabel.text = "\(response.main.temp)°"
                     let url = "http://openweathermap.org/img/wn/\(response.weather[0].icon)@2x.png"
                     self.downloadPhoto(photoUrl: url) { data in
                         if let data = data {
