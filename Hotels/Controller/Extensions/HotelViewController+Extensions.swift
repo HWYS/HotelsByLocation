@@ -64,6 +64,9 @@ extension HotelsViewController: NSFetchedResultsControllerDelegate  {
         case .insert:
             tableView.insertRows(at: [newIndexPath!], with: .fade)
             break
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+            break
         default:
             break
         }

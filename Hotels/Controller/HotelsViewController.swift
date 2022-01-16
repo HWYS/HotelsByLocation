@@ -22,9 +22,18 @@ class HotelsViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Hotels around \(pin.locationName!)"
         
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Refresh", style: .done, target: self, action: #selector(self.action(sender:)))
         setupFetchedResultsController()
         getCurrentWeather()
+    }
+    
+    @objc func action(sender: UIBarButtonItem) {
+        if isConnectedToInternet {
+            getCurrentWeather()
+            deleteFromDb()
+        }else {
+            showAlert(message: "Internet connection is not available")
+        }
     }
     
     private func getCurrentWeather(){
