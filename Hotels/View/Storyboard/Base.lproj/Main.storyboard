@@ -67,6 +67,71 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0yV-Ba-rQx">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HotelTableViewCell" rowHeight="170" id="GZ1-Rk-GdK" customClass="HotelTableViewCell" customModule="Hotels" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="170"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GZ1-Rk-GdK" id="pCV-5q-zcV">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdV-SR-63j">
+                                                    <rect key="frame" x="30" y="21" width="150" height="128"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O13-Ec-krS">
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="128"/>
+                                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </imageView>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mi2-Uh-djz">
+                                                            <rect key="frame" x="56.5" y="45.5" width="37" height="37"/>
+                                                        </activityIndicatorView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="WhiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="O13-Ec-krS" firstAttribute="leading" secondItem="GdV-SR-63j" secondAttribute="leading" id="RIl-LN-dfK"/>
+                                                        <constraint firstAttribute="bottom" secondItem="O13-Ec-krS" secondAttribute="bottom" id="ZH9-JE-XzO"/>
+                                                        <constraint firstAttribute="height" constant="150" id="jtA-Pk-Zwb"/>
+                                                        <constraint firstAttribute="width" constant="150" id="ocC-HB-k4C"/>
+                                                        <constraint firstItem="O13-Ec-krS" firstAttribute="top" secondItem="GdV-SR-63j" secondAttribute="top" id="oj2-bh-4QO"/>
+                                                        <constraint firstItem="mi2-Uh-djz" firstAttribute="centerY" secondItem="GdV-SR-63j" secondAttribute="centerY" id="tcC-qT-Kk7"/>
+                                                        <constraint firstAttribute="trailing" secondItem="O13-Ec-krS" secondAttribute="trailing" id="vSI-qY-25K"/>
+                                                        <constraint firstItem="mi2-Uh-djz" firstAttribute="centerX" secondItem="GdV-SR-63j" secondAttribute="centerX" id="zln-OA-0de"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaG-Qk-QMu" userLabel="Hotel Name">
+                                                    <rect key="frame" x="190" y="21" width="214" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmU-cC-u0T">
+                                                    <rect key="frame" x="190" y="49" width="194" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="WhiteColor"/>
+                                            <constraints>
+                                                <constraint firstItem="AmU-cC-u0T" firstAttribute="top" secondItem="KaG-Qk-QMu" secondAttribute="bottomMargin" constant="12" id="AUC-h4-31d"/>
+                                                <constraint firstItem="GdV-SR-63j" firstAttribute="top" secondItem="pCV-5q-zcV" secondAttribute="topMargin" constant="10" id="Bhc-hF-cqh"/>
+                                                <constraint firstItem="AmU-cC-u0T" firstAttribute="leading" secondItem="GdV-SR-63j" secondAttribute="trailing" constant="10" id="Pbn-br-VMQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="GdV-SR-63j" secondAttribute="bottom" constant="10" id="SEA-hC-tnx"/>
+                                                <constraint firstItem="KaG-Qk-QMu" firstAttribute="leading" secondItem="GdV-SR-63j" secondAttribute="trailing" constant="10" id="X6p-vU-87R"/>
+                                                <constraint firstItem="KaG-Qk-QMu" firstAttribute="trailing" secondItem="pCV-5q-zcV" secondAttribute="trailingMargin" constant="10" id="dn1-7N-fed"/>
+                                                <constraint firstItem="GdV-SR-63j" firstAttribute="leading" secondItem="pCV-5q-zcV" secondAttribute="leadingMargin" constant="10" id="rrm-4C-cHb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="AmU-cC-u0T" secondAttribute="trailing" constant="10" id="yVC-7u-2gr"/>
+                                                <constraint firstItem="KaG-Qk-QMu" firstAttribute="top" secondItem="pCV-5q-zcV" secondAttribute="topMargin" constant="10" id="zMm-Ay-3Ku"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="activicatorIndicator" destination="mi2-Uh-djz" id="DlP-L7-YRO"/>
+                                            <outlet property="addressLabel" destination="AmU-cC-u0T" id="0ox-6e-XL3"/>
+                                            <outlet property="hotelImagerView" destination="O13-Ec-krS" id="eJr-E0-Veu"/>
+                                            <outlet property="hotelNameLabel" destination="KaG-Qk-QMu" id="fBp-TG-Djv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="e7C-7e-DiU" id="gze-Qv-zeo"/>
                                     <outlet property="delegate" destination="e7C-7e-DiU" id="s5n-lF-GJa"/>

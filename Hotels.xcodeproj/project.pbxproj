@@ -24,6 +24,7 @@
 		FDB054932794009300B58886 /* HotelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDB054912794009300B58886 /* HotelTableViewCell.xib */; };
 		FDB054952794044F00B58886 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB054942794044F00B58886 /* DataController.swift */; };
 		FDB05497279410B300B58886 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB05496279410B300B58886 /* DataModel.swift */; };
+		FDB054992794280200B58886 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB054982794280200B58886 /* Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		FDB054912794009300B58886 /* HotelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotelTableViewCell.xib; sourceTree = "<group>"; };
 		FDB054942794044F00B58886 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		FDB05496279410B300B58886 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		FDB054982794280200B58886 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				FD9936A727932E3B00B29BF5 /* NetworkReachabilityManager.swift */,
+				FDB054982794280200B58886 /* Utility.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				FDB054952794044F00B58886 /* DataController.swift in Sources */,
 				FD9936B127933F7600B29BF5 /* MapViewController+Extensions.swift in Sources */,
 				FD99368E2793285100B29BF5 /* AppDelegate.swift in Sources */,
+				FDB054992794280200B58886 /* Utility.swift in Sources */,
 				FD9936AF2793349600B29BF5 /* HotelsApiClient.swift in Sources */,
 				FD9936B52793446E00B29BF5 /* Hotels.xcdatamodeld in Sources */,
 				FDB05497279410B300B58886 /* DataModel.swift in Sources */,

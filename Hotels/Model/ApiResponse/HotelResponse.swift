@@ -8,25 +8,25 @@
 import Foundation
 
 struct HotelResponse: Codable {
-    let results: [Hotel]
+    let result: [Hotel]
 }
 
 struct Hotel: Codable {
     let hotelName: String
-    let hotelId: Int
     let address: String
+    let cityName: String
     let reviewScore: Double
-    let websiteUrl: String
     let photoUrl: String
-    let city: String
+    let websiteUrl: String
+    let minPrice: Double
     
     enum CodingKeys: String, CodingKey {
         case hotelName = "hotel_name"
-        case hotelId = "hotel_id"
         case address
-        case reviewScore = "review_score"
-        case websiteUrl = "url"
+        case cityName = "city_name_en"
+        case reviewScore  = "review_score"
         case photoUrl = "max_1440_photo_url"
-        case city
+        case websiteUrl = "url"
+        case minPrice = "min_total_price"
     }
 }

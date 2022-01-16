@@ -8,16 +8,16 @@
 import UIKit
 
 class HotelTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var hotelImagerView: UIImageView!
+    @IBOutlet weak var activicatorIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var hotelNameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
 }

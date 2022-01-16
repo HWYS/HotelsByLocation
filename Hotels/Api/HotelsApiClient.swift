@@ -8,10 +8,6 @@
 import Foundation
 
 class HotelsApiClient {
-    private let headers = [
-        "x-rapidapi-host": "booking-com.p.rapidapi.com",
-        "x-rapidapi-key": "ZX4BjoSRbjmshLRPbUXKVb8gOqcWp1QZ3HsjsnMJ1FQpV2rY9T"
-    ]
     
     enum EndPoints {
         private static let baseURL = "https://booking-com.p.rapidapi.com/v1/hotels/"
@@ -23,7 +19,7 @@ class HotelsApiClient {
         var urlString: String {
             switch self {
             case .searchByCoordinate(let lat, let lon):
-                return EndPoints.baseURL + "search-by-coordinates?order_by=popularity&longitude=\(lon)&latitude=\(lat)&locale=en-gb"
+                return EndPoints.baseURL + "search-by-coordinates?order_by=popularity&longitude=\(lon)&latitude=\(lat)&locale=en-gb&room_number=1&units=metric&adults_number=2&filter_by_currency=USD&checkin_date=2022-07-01&checkout_date=2022-07-02"
                 
             case.downloadPhoto(let photoUrl):
                 return photoUrl
@@ -31,14 +27,16 @@ class HotelsApiClient {
         }
         
         var url: URL {
+            print(urlString)
             return URL(string: urlString)!
         }
     }
     
+    
     class func getHotelsByCoordinate(lat: Double, lon: Double, completion: @escaping  ([Hotel], Error?) -> Void) {
         taskForGETRequest(url: EndPoints.searchByCoordinate(lat, lon).url, responseType: HotelResponse.self) { response, error in
             if let response = response {
-                completion(response.results, nil)
+                completion(response.result, nil)
             }else {
                 completion([], error)
             }
@@ -47,8 +45,14 @@ class HotelsApiClient {
     
     class func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
+        
+        let headers = [
+            "x-rapidapi-host": "booking-com.p.rapidapi.com",
+            "x-rapidapi-key": "ZX4BjoSRbjmshLRPbUXKVb8gOqcWp1QZ3HsjsnMJ1FQpV2rY9T"
+        ]
+        
         request.httpMethod = "GET"
-        request.allHTTPHeaderFields =  [ "x-rapidapi-host": "booking-com.p.rapidapi.com", "x-rapidapi-key": "ZX4BjoSRbjmshLRPbUXKVb8gOqcWp1QZ3HsjsnMJ1FQpV2rY9T"]
+        request.allHTTPHeaderFields =  headers
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
