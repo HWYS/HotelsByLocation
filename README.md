@@ -25,4 +25,5 @@
 <h3>Screenshots</h3>
 <p><img src="https://github.com/HWYS/HotelsByLocation/blob/main/Screenshots/MapViewController.png" alt="MapViewController" /></p>
 <p><img src="https://github.com/HWYS/HotelsByLocation/blob/main/Screenshots/HotelsViewController.png" alt="HotelsViewController" /></p>
+<p><img src="https://github.com/HWYS/HotelsByLocation/blob/main/Screenshots/DetailViewController.png" alt="HotelDetailViewController" /></p>
 <p>&nbsp;</p>
