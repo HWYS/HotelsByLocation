@@ -28,8 +28,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tMI-t9-mc2">
+                            <searchBar contentMode="redraw" placeholder="Search by Location Name" translatesAutoresizingMaskIntoConstraints="NO" id="tMI-t9-mc2">
                                 <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <color key="backgroundColor" name="WhiteColor"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -45,7 +46,7 @@
                             <constraint firstItem="Wsr-qF-4pz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vRB-iv-5rY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="iC6-3F-4vS"/>
+                    <navigationItem key="navigationItem" id="1D9-r7-tTk"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Bnt-zg-7T1" id="Nej-Fj-6FS"/>
                         <outlet property="mapView" destination="Wsr-qF-4pz" id="js1-h8-bBW"/>
@@ -58,7 +59,7 @@
         <!--Hotels View Controller-->
         <scene sceneID="0zp-In-WMN">
             <objects>
-                <viewController id="e7C-7e-DiU" customClass="HotelsViewController" customModule="Hotels" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="HotelsViewController" storyboardIdentifier="HotelsViewController" id="e7C-7e-DiU" customClass="HotelsViewController" customModule="Hotels" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iRR-IG-yf1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,16 +72,26 @@
                                     <outlet property="delegate" destination="e7C-7e-DiU" id="s5n-lF-GJa"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="FCt-9O-Xmi">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cRS-l1-Umq"/>
                         <color key="backgroundColor" name="WhiteColor"/>
                         <constraints>
                             <constraint firstItem="0yV-Ba-rQx" firstAttribute="trailing" secondItem="cRS-l1-Umq" secondAttribute="trailing" id="0Ny-V3-XSr"/>
                             <constraint firstItem="0yV-Ba-rQx" firstAttribute="leading" secondItem="cRS-l1-Umq" secondAttribute="leading" id="7p8-Ow-CRC"/>
+                            <constraint firstItem="FCt-9O-Xmi" firstAttribute="centerY" secondItem="iRR-IG-yf1" secondAttribute="centerY" id="FIV-e5-F1T"/>
                             <constraint firstItem="0yV-Ba-rQx" firstAttribute="bottom" secondItem="cRS-l1-Umq" secondAttribute="bottom" id="JaH-wL-4SX"/>
                             <constraint firstItem="0yV-Ba-rQx" firstAttribute="top" secondItem="cRS-l1-Umq" secondAttribute="top" id="nZp-Kp-FyC"/>
+                            <constraint firstItem="FCt-9O-Xmi" firstAttribute="centerX" secondItem="iRR-IG-yf1" secondAttribute="centerX" id="xV1-V8-hfK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="FCt-9O-Xmi" id="hbe-iQ-n7J"/>
+                        <outlet property="tableView" destination="0yV-Ba-rQx" id="heU-Uw-QBg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q2X-xH-uHK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

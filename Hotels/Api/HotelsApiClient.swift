@@ -18,11 +18,15 @@ class HotelsApiClient {
         
         
         case searchByCoordinate(Double, Double)
+        case downloadPhoto(String)
         
         var urlString: String {
             switch self {
             case .searchByCoordinate(let lat, let lon):
                 return EndPoints.baseURL + "search-by-coordinates?order_by=popularity&longitude=\(lon)&latitude=\(lat)&locale=en-gb"
+                
+            case.downloadPhoto(let photoUrl):
+                return photoUrl
             }
         }
         
@@ -31,14 +35,20 @@ class HotelsApiClient {
         }
     }
     
-    class func getHotelsByCoordinate(lat: Double, lon: Double, completion: @escaping  (Bool, Error?) -> Void) {
-        
+    class func getHotelsByCoordinate(lat: Double, lon: Double, completion: @escaping  ([Hotel], Error?) -> Void) {
+        taskForGETRequest(url: EndPoints.searchByCoordinate(lat, lon).url, responseType: HotelResponse.self) { response, error in
+            if let response = response {
+                completion(response.results, nil)
+            }else {
+                completion([], error)
+            }
+        }
     }
     
-    private func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
+    class func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
+        request.allHTTPHeaderFields =  [ "x-rapidapi-host": "booking-com.p.rapidapi.com", "x-rapidapi-key": "ZX4BjoSRbjmshLRPbUXKVb8gOqcWp1QZ3HsjsnMJ1FQpV2rY9T"]
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
@@ -62,5 +72,14 @@ class HotelsApiClient {
         
     }
     
+    class func downloadImage(photoUrl: String, completion: @escaping (Data?, Error?) -> Void) {
+        let task = URLSession.shared.dataTask(with: EndPoints.downloadPhoto(photoUrl).url) { data, response, error in
+            
+            DispatchQueue.main.async{
+                completion(data, error)
+            }
+        }
+        task.resume()
+    }
     
 }
