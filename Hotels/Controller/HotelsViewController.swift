@@ -18,7 +18,7 @@ class HotelsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "Hotels around \(pin.locationName!)"
         setupFetchedResultsController()
     }
     
@@ -124,6 +124,8 @@ extension HotelsViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.hotelNameLabel.text = hotel.hotelName
         cell.addressLabel.text = hotel.address
+        cell.ratingLabel.text = "\(hotel.reviewScore)"
+        cell.priceLabel.text  = #"$\#(hotel.minPrice)"#
         
         if let data = hotel.photo {
             cell.hotelImagerView.image = UIImage(data: data)
@@ -141,5 +143,16 @@ extension HotelsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isConnectedToInternet {
+            let destination = self.storyboard?.instantiateViewController(identifier: "HotelDetailViewController") as! HotelDetailViewController
+            destination.url  = DataModel.hotels[indexPath.row].websiteUrl!
+            destination.hotelName = DataModel.hotels[indexPath.row].hotelName!
+            self.navigationController?.pushViewController(destination, animated: true)
+        }else {
+            showAlert(message: "No internet connection is available")
+        }
+        
+    }
 }

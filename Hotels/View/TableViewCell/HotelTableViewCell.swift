@@ -13,6 +13,8 @@ class HotelTableViewCell: UITableViewCell {
     @IBOutlet weak var activicatorIndicator: UIActivityIndicatorView!
     @IBOutlet weak var hotelNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

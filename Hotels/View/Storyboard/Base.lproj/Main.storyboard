@@ -99,26 +99,51 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaG-Qk-QMu" userLabel="Hotel Name">
-                                                    <rect key="frame" x="190" y="21" width="214" height="24"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <rect key="frame" x="190" y="21" width="214" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmU-cC-u0T">
-                                                    <rect key="frame" x="190" y="49" width="194" height="20.5"/>
+                                                    <rect key="frame" x="190" y="46.5" width="194" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Badge" translatesAutoresizingMaskIntoConstraints="NO" id="3sq-eu-UFx">
+                                                    <rect key="frame" x="190" y="109" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="5ba-BG-GLs"/>
+                                                        <constraint firstAttribute="width" constant="30" id="9lF-AZ-EUv"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPV-gq-C7z" userLabel="Rating">
+                                                    <rect key="frame" x="225" y="120" width="29" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                                    <color key="textColor" red="0.94082206489999998" green="0.59957838060000002" blue="0.2162639797" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSv-Ym-KZv">
+                                                    <rect key="frame" x="379.5" y="119.5" width="24.5" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" name="WhiteColor"/>
                                             <constraints>
+                                                <constraint firstItem="jPV-gq-C7z" firstAttribute="bottom" secondItem="wSv-Ym-KZv" secondAttribute="bottom" id="3O9-fE-hzI"/>
+                                                <constraint firstItem="GdV-SR-63j" firstAttribute="bottom" secondItem="3sq-eu-UFx" secondAttribute="bottom" constant="10" id="6vz-Ml-rfR"/>
                                                 <constraint firstItem="AmU-cC-u0T" firstAttribute="top" secondItem="KaG-Qk-QMu" secondAttribute="bottomMargin" constant="12" id="AUC-h4-31d"/>
                                                 <constraint firstItem="GdV-SR-63j" firstAttribute="top" secondItem="pCV-5q-zcV" secondAttribute="topMargin" constant="10" id="Bhc-hF-cqh"/>
+                                                <constraint firstAttribute="trailing" secondItem="wSv-Ym-KZv" secondAttribute="trailing" constant="10" id="NRr-6V-Yle"/>
                                                 <constraint firstItem="AmU-cC-u0T" firstAttribute="leading" secondItem="GdV-SR-63j" secondAttribute="trailing" constant="10" id="Pbn-br-VMQ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="GdV-SR-63j" secondAttribute="bottom" constant="10" id="SEA-hC-tnx"/>
+                                                <constraint firstItem="GdV-SR-63j" firstAttribute="bottomMargin" secondItem="jPV-gq-C7z" secondAttribute="bottom" id="U9M-TT-tN9"/>
                                                 <constraint firstItem="KaG-Qk-QMu" firstAttribute="leading" secondItem="GdV-SR-63j" secondAttribute="trailing" constant="10" id="X6p-vU-87R"/>
+                                                <constraint firstItem="3sq-eu-UFx" firstAttribute="leading" secondItem="GdV-SR-63j" secondAttribute="trailing" constant="10" id="caO-nY-k6Z"/>
                                                 <constraint firstItem="KaG-Qk-QMu" firstAttribute="trailing" secondItem="pCV-5q-zcV" secondAttribute="trailingMargin" constant="10" id="dn1-7N-fed"/>
+                                                <constraint firstItem="jPV-gq-C7z" firstAttribute="leading" secondItem="3sq-eu-UFx" secondAttribute="trailing" constant="5" id="ejR-Zq-yX5"/>
                                                 <constraint firstItem="GdV-SR-63j" firstAttribute="leading" secondItem="pCV-5q-zcV" secondAttribute="leadingMargin" constant="10" id="rrm-4C-cHb"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="AmU-cC-u0T" secondAttribute="trailing" constant="10" id="yVC-7u-2gr"/>
                                                 <constraint firstItem="KaG-Qk-QMu" firstAttribute="top" secondItem="pCV-5q-zcV" secondAttribute="topMargin" constant="10" id="zMm-Ay-3Ku"/>
@@ -129,6 +154,8 @@
                                             <outlet property="addressLabel" destination="AmU-cC-u0T" id="0ox-6e-XL3"/>
                                             <outlet property="hotelImagerView" destination="O13-Ec-krS" id="eJr-E0-Veu"/>
                                             <outlet property="hotelNameLabel" destination="KaG-Qk-QMu" id="fBp-TG-Djv"/>
+                                            <outlet property="priceLabel" destination="wSv-Ym-KZv" id="GNX-7e-aiQ"/>
+                                            <outlet property="ratingLabel" destination="jPV-gq-C7z" id="FKy-3T-zil"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -162,6 +189,40 @@
             </objects>
             <point key="canvasLocation" x="931.88405797101461" y="32.8125"/>
         </scene>
+        <!--Hotel Detail View Controller-->
+        <scene sceneID="FAU-NN-pkN">
+            <objects>
+                <viewController restorationIdentifier="HotelDetailViewController" storyboardIdentifier="HotelDetailViewController" id="4Ia-zD-obY" customClass="HotelDetailViewController" customModule="Hotels" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DxN-E8-DoV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZB-4J-Au0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="N35-Ec-OEB"/>
+                        <color key="backgroundColor" name="WhiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EZB-4J-Au0" firstAttribute="leading" secondItem="N35-Ec-OEB" secondAttribute="leading" id="6SN-n6-I0A"/>
+                            <constraint firstItem="N35-Ec-OEB" firstAttribute="trailing" secondItem="EZB-4J-Au0" secondAttribute="trailing" id="cj7-QM-ht8"/>
+                            <constraint firstItem="EZB-4J-Au0" firstAttribute="top" secondItem="N35-Ec-OEB" secondAttribute="top" id="cvC-GW-6iI"/>
+                            <constraint firstItem="EZB-4J-Au0" firstAttribute="bottom" secondItem="N35-Ec-OEB" secondAttribute="bottom" id="hJP-yD-xL8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="EZB-4J-Au0" id="Ver-ba-nsx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZEC-sp-shH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1662" y="33"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lp4-gV-04O">
             <objects>
@@ -182,6 +243,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Badge" width="32" height="32"/>
         <namedColor name="WhiteColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
