@@ -53,7 +53,7 @@ extension MapViewController {
         }
     }
     
-    func findGeoLocationByName(locationName: String){
+    func getGeoLocationByName(locationName: String){
         showHideActivityIndicator(true, activityIndicator)
         CLGeocoder().geocodeAddressString(locationName) { (marker, error) in
             if let _ = error {
@@ -88,8 +88,20 @@ extension MapViewController {
         try? dataController.viewContext.save()
         DataModel.locations.append(pin)
         
-        addAnnotationsToMap()
-        
+        addPinToMap(pin: pin)
+    }
+    
+    private func addPinToMap(pin: Locations) {
+        let coordinate = CLLocationCoordinate2D(latitude: pin.lat, longitude: pin.lon)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        annotation.title = pin.locationName
+        mapView.addAnnotation(annotation)
+        mapView.setCenter(coordinate, animated: true)
+        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+        let region =  MKCoordinateRegion(center: coordinate, span: span)
+        mapView.setRegion(mapView.regionThatFits(region), animated: true)
+        showHideActivityIndicator(false, activityIndicator)
     }
     
     func saveRegion(withKey key:String) {
@@ -140,5 +152,21 @@ extension MapViewController: MKMapViewDelegate {
             self.navigationController?.pushViewController(destination, animated: true)
         }
         
+    }
+    
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        saveRegion(withKey: "mapregion")
+    }
+}
+
+extension  MapViewController:  UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText  = searchBar.searchTextField.text {
+            if !searchText.isEmpty {
+                getGeoLocationByName(locationName: searchText)
+            }
+        }
+        searchBar.resignFirstResponder()
     }
 }

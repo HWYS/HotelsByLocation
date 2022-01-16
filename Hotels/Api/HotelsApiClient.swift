@@ -11,7 +11,7 @@ class HotelsApiClient {
     
     enum EndPoints {
         private static let baseURL = "https://booking-com.p.rapidapi.com/v1/hotels/"
-        
+        private static let weatherBaseURL = "https://community-open-weather-map.p.rapidapi.com/weather"
         
         case searchByCoordinate(Double, Double)
         case downloadPhoto(String)
@@ -23,18 +23,22 @@ class HotelsApiClient {
                 
             case.downloadPhoto(let photoUrl):
                 return photoUrl
+           
             }
         }
         
         var url: URL {
-            print(urlString)
             return URL(string: urlString)!
         }
     }
     
     
     class func getHotelsByCoordinate(lat: Double, lon: Double, completion: @escaping  ([Hotel], Error?) -> Void) {
-        taskForGETRequest(url: EndPoints.searchByCoordinate(lat, lon).url, responseType: HotelResponse.self) { response, error in
+        let headers = [
+            "x-rapidapi-host": "booking-com.p.rapidapi.com",
+            "x-rapidapi-key": "ZX4BjoSRbjmshLRPbUXKVb8gOqcWp1QZ3HsjsnMJ1FQpV2rY9T"
+        ]
+        taskForGETRequest(url: EndPoints.searchByCoordinate(lat, lon).url, headers: headers, responseType: HotelResponse.self) { response, error in
             if let response = response {
                 completion(response.result, nil)
             }else {
@@ -43,13 +47,10 @@ class HotelsApiClient {
         }
     }
     
-    class func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
+    
+    
+    class func taskForGETRequest<ResponseType: Decodable>(url: URL, headers: [String: String], responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
-        
-        let headers = [
-            "x-rapidapi-host": "booking-com.p.rapidapi.com",
-            "x-rapidapi-key": "ZX4BjoSRbjmshLRPbUXKVb8gOqcWp1QZ3HsjsnMJ1FQpV2rY9T"
-        ]
         
         request.httpMethod = "GET"
         request.allHTTPHeaderFields =  headers
@@ -62,6 +63,7 @@ class HotelsApiClient {
                 return
             }
             do {
+                
                 let responseObject = try JSONDecoder().decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)

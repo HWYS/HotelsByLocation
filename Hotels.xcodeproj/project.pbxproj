@@ -21,11 +21,13 @@
 		FD9936B52793446E00B29BF5 /* Hotels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD9936B32793446E00B29BF5 /* Hotels.xcdatamodeld */; };
 		FDB0548E2793E64D00B58886 /* HotelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB0548D2793E64D00B58886 /* HotelResponse.swift */; };
 		FDB054922794009300B58886 /* HotelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB054902794009300B58886 /* HotelTableViewCell.swift */; };
-		FDB054932794009300B58886 /* HotelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDB054912794009300B58886 /* HotelTableViewCell.xib */; };
 		FDB054952794044F00B58886 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB054942794044F00B58886 /* DataController.swift */; };
 		FDB05497279410B300B58886 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB05496279410B300B58886 /* DataModel.swift */; };
 		FDB054992794280200B58886 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB054982794280200B58886 /* Utility.swift */; };
 		FDB0549D2794522400B58886 /* HotelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB0549C2794522400B58886 /* HotelDetailViewController.swift */; };
+		FDB0549F2794953700B58886 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB0549E2794953700B58886 /* WeatherResponse.swift */; };
+		FDB054A12794A13300B58886 /* WeatherApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB054A02794A13300B58886 /* WeatherApiClient.swift */; };
+		FDB054A32794A83200B58886 /* HotelViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB054A22794A83200B58886 /* HotelViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,11 +47,13 @@
 		FD9936B42793446E00B29BF5 /* Hotels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hotels.xcdatamodel; sourceTree = "<group>"; };
 		FDB0548D2793E64D00B58886 /* HotelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelResponse.swift; sourceTree = "<group>"; };
 		FDB054902794009300B58886 /* HotelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelTableViewCell.swift; sourceTree = "<group>"; };
-		FDB054912794009300B58886 /* HotelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotelTableViewCell.xib; sourceTree = "<group>"; };
 		FDB054942794044F00B58886 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		FDB05496279410B300B58886 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		FDB054982794280200B58886 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		FDB0549C2794522400B58886 /* HotelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailViewController.swift; sourceTree = "<group>"; };
+		FDB0549E2794953700B58886 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		FDB054A02794A13300B58886 /* WeatherApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApiClient.swift; sourceTree = "<group>"; };
+		FDB054A22794A83200B58886 /* HotelViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HotelViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				FD9936AE2793349600B29BF5 /* HotelsApiClient.swift */,
+				FDB054A02794A13300B58886 /* WeatherApiClient.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 			children = (
 				FD9936AA27932E7500B29BF5 /* UIViewController+Extensions.swift */,
 				FD9936B027933F7600B29BF5 /* MapViewController+Extensions.swift */,
+				FDB054A22794A83200B58886 /* HotelViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				FDB0548D2793E64D00B58886 /* HotelResponse.swift */,
+				FDB0549E2794953700B58886 /* WeatherResponse.swift */,
 			);
 			path = ApiResponse;
 			sourceTree = "<group>";
@@ -181,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				FDB054902794009300B58886 /* HotelTableViewCell.swift */,
-				FDB054912794009300B58886 /* HotelTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -246,7 +252,6 @@
 			files = (
 				FD99369A2793285900B29BF5 /* LaunchScreen.storyboard in Resources */,
 				FD9936972793285900B29BF5 /* Assets.xcassets in Resources */,
-				FDB054932794009300B58886 /* HotelTableViewCell.xib in Resources */,
 				FD9936952793285100B29BF5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,12 +272,15 @@
 				FD9936B52793446E00B29BF5 /* Hotels.xcdatamodeld in Sources */,
 				FDB05497279410B300B58886 /* DataModel.swift in Sources */,
 				FD9936AB27932E7500B29BF5 /* UIViewController+Extensions.swift in Sources */,
+				FDB054A12794A13300B58886 /* WeatherApiClient.swift in Sources */,
 				FDB054922794009300B58886 /* HotelTableViewCell.swift in Sources */,
 				FD9936AD279331BC00B29BF5 /* HotelsViewController.swift in Sources */,
 				FDB0548E2793E64D00B58886 /* HotelResponse.swift in Sources */,
 				FDB0549D2794522400B58886 /* HotelDetailViewController.swift in Sources */,
 				FD9936A827932E3B00B29BF5 /* NetworkReachabilityManager.swift in Sources */,
 				FD9936902793285100B29BF5 /* SceneDelegate.swift in Sources */,
+				FDB0549F2794953700B58886 /* WeatherResponse.swift in Sources */,
+				FDB054A32794A83200B58886 /* HotelViewController+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

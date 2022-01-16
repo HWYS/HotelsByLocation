@@ -18,11 +18,31 @@ class MapViewController: UIViewController {
     var fetchedResultsController: NSFetchedResultsController<Locations>!
     let defaults = UserDefaults.standard
     
+    lazy var searchBar = UISearchBar(frame: CGRect.zero)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addSearchBar()
+        
         addLogPressListenerToMap()
         setUpFetchResultsController()
+        
+        if let region = loadRegion(withKey: "mapregion") {
+            mapView.region = region
+        }
+    }
+    
+    private func addSearchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.searchBar.barStyle = .black
+        searchController.searchBar.searchTextField.backgroundColor = .darkGray
+        searchController.searchBar.placeholder = "Type location name and hit Enter"
+        searchController.searchBar.delegate = self
+        self.navigationItem.searchController = searchController
+        self.definesPresentationContext = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {

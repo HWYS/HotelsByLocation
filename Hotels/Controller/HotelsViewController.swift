@@ -13,13 +13,42 @@ class HotelsViewController: UIViewController {
     var dataController: DataController!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var fetchedResultsController: NSFetchedResultsController<Hotels>!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var weatherImage: UIImageView!
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Hotels around \(pin.locationName!)"
+        
+        getCurrentWeather()
         setupFetchedResultsController()
+    }
+    
+    private func getCurrentWeather(){
+        if isConnectedToInternet {
+            showHideActivityIndicator(true, activityIndicator)
+            WeatherApiClient.getCurrentWeatherByCoordinate(q: pin.locationName!, lat: pin.lat, lon: pin.lon) { response, error in
+                if let response = response {
+                    self.temperatureLabel.text = "\(response.main.temp)"
+                    let url = "http://openweathermap.org/img/wn/\(response.weather[0].icon)@2x.png"
+                    self.downloadPhoto(photoUrl: url) { data in
+                        if let data = data {
+                            self.weatherImage.image = UIImage(data: data)
+                        }
+                    }
+                    self.showHideActivityIndicator(false, self.activityIndicator)
+                    
+                }else {
+                    self.showAlert(message: "Unable to get current weather forecast")
+                    self.showHideActivityIndicator(false, self.activityIndicator)
+                }
+            }
+        }else {
+            showHideActivityIndicator(false, activityIndicator)
+            showAlert(message: "Open internet setting to see current weather forecase")
+        }
     }
     
     fileprivate func setupFetchedResultsController() {
@@ -29,11 +58,11 @@ class HotelsViewController: UIViewController {
         let sortDescriptior = NSSortDescriptor(key: "reviewScore", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptior]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "\(pin)-hotels")
-        //fetchedResultsController.delegate = self
+        fetchedResultsController.delegate = self
 
         do {
             try fetchedResultsController.performFetch()
-            getPhotosFromDb()
+            getHotelsFromDb()
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
@@ -43,7 +72,7 @@ class HotelsViewController: UIViewController {
         }
     }
     
-    private func getPhotosFromDb(){
+    private func getHotelsFromDb(){
         showHideActivityIndicator(true, activityIndicator)
         if let resutls = fetchedResultsController.fetchedObjects {
             DataModel.hotels = resutls
@@ -107,52 +136,14 @@ class HotelsViewController: UIViewController {
         getHotelsFromApi()
     }
     
-}
-
-extension HotelsViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return  1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?[0].numberOfObjects ?? DataModel.hotels.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let hotel = fetchedResultsController.object(at: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HotelTableViewCell", for: indexPath) as! HotelTableViewCell
+    func downloadPhoto(photoUrl: String, completion: @escaping(Data?) -> Void) {
         
-        cell.hotelNameLabel.text = hotel.hotelName
-        cell.addressLabel.text = hotel.address
-        cell.ratingLabel.text = "\(hotel.reviewScore)"
-        cell.priceLabel.text  = #"$\#(hotel.minPrice)"#
-        
-        if let data = hotel.photo {
-            cell.hotelImagerView.image = UIImage(data: data)
-        } else {
-            cell.activicatorIndicator.startAnimating()
-            HotelsApiClient.downloadImage(photoUrl: hotel.photoUrl!) { data, error in
-                if let data = data {
-                    cell.hotelImagerView.image = UIImage(data: data)
-                    cell.activicatorIndicator.stopAnimating()
-                    
-                    hotel.photo = data
-                    try? self.dataController.viewContext.save()
-                }
-            }
+        HotelsApiClient.downloadImage(photoUrl: photoUrl) { data, error in
+            completion(data)
         }
-        return cell
+        
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isConnectedToInternet {
-            let destination = self.storyboard?.instantiateViewController(identifier: "HotelDetailViewController") as! HotelDetailViewController
-            destination.url  = DataModel.hotels[indexPath.row].websiteUrl!
-            destination.hotelName = DataModel.hotels[indexPath.row].hotelName!
-            self.navigationController?.pushViewController(destination, animated: true)
-        }else {
-            showAlert(message: "No internet connection is available")
-        }
-        
-    }
 }
+
+
